@@ -12,19 +12,13 @@ class TestMarsRover:
 
         assert position == "0:0:N"
 
-    def test_rover_can_turn_right_with_single_commands(self) -> None:
-        rover = MarsRover.deploy()
-
-        assert rover.execute("R") == "0:0:E"
-        assert rover.execute("R") == "0:0:S"
-        assert rover.execute("R") == "0:0:W"
-        assert rover.execute("R") == "0:0:N"
-
     @pytest.mark.parametrize(
         "sequence, expected",
-        [("RR", "0:0:S"), ("RRR", "0:0:W"), ("RRRR", "0:0:N")]
+        [("R", "0:0:E"), ("RR", "0:0:S"), ("RRR", "0:0:W"), ("RRRR", "0:0:N")]
     )
-    def test_rover_can_turn_right_with_multiple_commands_in_the_same_sequence(self, sequence: str, expected: str) -> None:
+    def test_rover_can_turn_right(self, sequence: str, expected: str) -> None:
         rover = MarsRover.deploy()
 
-        assert rover.execute(sequence) == expected
+        position = rover.execute(sequence)
+
+        assert position == expected
