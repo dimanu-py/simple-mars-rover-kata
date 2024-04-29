@@ -14,6 +14,8 @@ class MarsRover:
         for command in command_sequence:
             if command == "R":
                 self.turn_right()
+            if command == "L":
+                self.turn_left()
         return f"0:0:{self.compass}"
 
     def turn_right(self) -> None:
@@ -22,4 +24,12 @@ class MarsRover:
             "E": "S",
             "S": "W",
             "W": "N"
+        }[self.compass]
+
+    def turn_left(self) -> None:
+        self.compass = {
+            "N": "W",
+            "W": "S",
+            "S": "E",
+            "E": "N"
         }[self.compass]
