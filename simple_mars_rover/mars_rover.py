@@ -8,4 +8,6 @@ class MarsRover:
         return MarsRover()
 
     def execute(self, command_sequence: str) -> str:
+        if command_sequence == "R":
+            return "0:0:E"
         return "0:0:N"

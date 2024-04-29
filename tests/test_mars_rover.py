@@ -9,3 +9,10 @@ class TestMarsRover:
         position = rover.execute("")
 
         assert position == "0:0:N"
+
+    def test_rover_can_turn_right(self) -> None:
+        rover = MarsRover.deploy()
+
+        position = rover.execute("R")
+
+        assert position == "0:0:E"
