@@ -4,6 +4,7 @@ class MarsRover:
 
     def __init__(self) -> None:
         self.compass = "N"
+        self.x_coordinate = 0
         self.y_coordinate = 0
 
     @classmethod
@@ -18,9 +19,16 @@ class MarsRover:
             if command == "L":
                 self.turn_left()
             if command == "M":
-                self.y_coordinate += 1
+                if self.compass == "N":
+                    self.y_coordinate += 1
+                elif self.compass == "E":
+                    self.x_coordinate += 1
+                elif self.compass == "S":
+                    self.y_coordinate -= 1
+                elif self.compass == "W":
+                    self.x_coordinate -= 1
 
-        return f"0:{self.y_coordinate}:{self.compass}"
+        return f"{self.x_coordinate}:{self.y_coordinate}:{self.compass}"
 
     def turn_right(self) -> None:
         self.compass = {
