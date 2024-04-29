@@ -17,11 +17,9 @@ class MarsRover:
         return f"0:0:{self.compass}"
 
     def turn_right(self) -> None:
-        if self.compass == "N":
-            self.compass = "E"
-        elif self.compass == "E":
-            self.compass = "S"
-        elif self.compass == "S":
-            self.compass = "W"
-        elif self.compass == "W":
-            self.compass = "N"
+        self.compass = {
+            "N": "E",
+            "E": "S",
+            "S": "W",
+            "W": "N"
+        }[self.compass]
