@@ -33,3 +33,14 @@ class TestMarsRover:
         position = rover.execute(sequence)
 
         assert position == expected
+
+    @pytest.mark.parametrize(
+        "sequence, expected",
+        [("M", "0:1:N"), ("MM", "0:2:N"), ("MMMMMMMMM", "0:9:N")]
+    )
+    def test_rover_can_move_forward(self, sequence: str, expected: str) -> None:
+        rover = MarsRover.deploy()
+
+        position = rover.execute(sequence)
+
+        assert position == expected
