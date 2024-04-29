@@ -19,16 +19,19 @@ class MarsRover:
             if command == "L":
                 self.turn_left()
             if command == "M":
-                if self.compass == "N":
-                    self.y_coordinate += 1
-                elif self.compass == "E":
-                    self.x_coordinate += 1
-                elif self.compass == "S":
-                    self.y_coordinate -= 1
-                elif self.compass == "W":
-                    self.x_coordinate -= 1
+                self.move_forward()
 
         return f"{self.x_coordinate}:{self.y_coordinate}:{self.compass}"
+
+    def move_forward(self):
+        if self.compass == "N":
+            self.y_coordinate += 1
+        elif self.compass == "E":
+            self.x_coordinate += 1
+        elif self.compass == "S":
+            self.y_coordinate -= 1
+        elif self.compass == "W":
+            self.x_coordinate -= 1
 
     def turn_right(self) -> None:
         self.compass = {
