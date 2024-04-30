@@ -6,6 +6,9 @@ class Compass:
     def __str__(self) -> str:
         return f"{self.orientation}"
 
+    def __eq__(self, other: str) -> bool:
+        return self.orientation == other
+
     def turn_right(self) -> "Compass":
         orientation = {
             "N": "E",
