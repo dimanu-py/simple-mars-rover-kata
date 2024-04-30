@@ -43,6 +43,8 @@ class MarsRover:
             "W": "N"
         }[self.orientation]
 
+        self.compass = self.compass.turn_right()
+
     def turn_left(self) -> None:
         self.orientation = {
             "N": "W",
@@ -50,3 +52,5 @@ class MarsRover:
             "S": "E",
             "E": "N"
         }[self.orientation]
+
+        self.compass = self.compass.turn_left()
