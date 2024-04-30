@@ -7,11 +7,12 @@ class Position:
 
     @staticmethod
     def _wrap_coordinate(coordinate: int) -> int:
-        if coordinate > 9:
-            coordinate = 0
-        elif coordinate < 0:
-            coordinate = 9
-        return coordinate
+        """Wrap around the grid when the rover goes outside the grid.
+
+        This is, when the rover goes outside the grid, it will appear on the opposite side.
+        For example, if the rover goes outside the grid at the top, it will appear at the bottom.
+        """
+        return coordinate % 10
 
     def __str__(self) -> str:
         return f"{self.x_coordinate}:{self.y_coordinate}"
