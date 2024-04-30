@@ -2,18 +2,16 @@ class Position:
     """Coordinates of the rover's position"""
 
     def __init__(self, x_coordinate: int, y_coordinate: int) -> None:
-        self.x_coordinate = x_coordinate
-        self.y_coordinate = y_coordinate
+        self.x_coordinate = self._wrap_coordinate(x_coordinate)
+        self.y_coordinate = self._wrap_coordinate(y_coordinate)
 
-        if self.x_coordinate > 9:
-            self.x_coordinate = 0
-        elif self.x_coordinate < 0:
-            self.x_coordinate = 9
-
-        if self.y_coordinate > 9:
-            self.y_coordinate = 0
-        elif self.y_coordinate < 0:
-            self.y_coordinate = 9
+    @staticmethod
+    def _wrap_coordinate(coordinate: int) -> int:
+        if coordinate > 9:
+            coordinate = 0
+        elif coordinate < 0:
+            coordinate = 9
+        return coordinate
 
     def __str__(self) -> str:
         return f"{self.x_coordinate}:{self.y_coordinate}"
