@@ -1,4 +1,5 @@
 from simple_mars_rover.orientation import North, South, West, East, Orientation
+from simple_mars_rover.position import Position
 
 
 class Compass:
@@ -32,3 +33,6 @@ class Compass:
             coordinate -= 1
 
         return coordinate
+
+    def move(self, position: Position) -> Position:
+        return position
