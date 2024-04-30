@@ -1,10 +1,11 @@
 from simple_mars_rover.compass import Compass
+from simple_mars_rover.orientation import North
 
 
 class MarsRover:
 
     def __init__(self) -> None:
-        self.compass: Compass = Compass("N")
+        self.compass: Compass = Compass(North())
         self.x_coordinate = 0
         self.y_coordinate = 0
 
