@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from simple_mars_rover.position import Position
+
 
 class Orientation(ABC):
     """Cardinal directions."""
@@ -12,6 +14,10 @@ class Orientation(ABC):
     def turn_left(self) -> "Orientation":
         """Turn left cardinal direction"""
 
+    @abstractmethod
+    def move(self, current_position: Position) -> Position:
+        """Move the Rover in the correct direction"""
+
 
 class South(Orientation):
     """South cardinal direction"""
@@ -21,6 +27,9 @@ class South(Orientation):
 
     def turn_left(self) -> Orientation:
         return East()
+
+    def move(self, current_position: Position) -> Position:
+        return Position(current_position.x_coordinate, current_position.y_coordinate - 1)
 
     def __str__(self) -> str:
         return "S"
@@ -35,6 +44,9 @@ class East(Orientation):
     def turn_left(self) -> Orientation:
         return North()
 
+    def move(self, current_position: Position) -> Position:
+        return Position(current_position.x_coordinate + 1, current_position.y_coordinate)
+
     def __str__(self) -> str:
         return "E"
 
@@ -48,6 +60,9 @@ class West(Orientation):
     def turn_left(self) -> Orientation:
         return South()
 
+    def move(self, current_position: Position) -> Position:
+        return Position(current_position.x_coordinate - 1, current_position.y_coordinate)
+
     def __str__(self) -> str:
         return "W"
 
@@ -60,6 +75,9 @@ class North(Orientation):
 
     def turn_left(self) -> Orientation:
         return West()
+
+    def move(self, current_position: Position) -> Position:
+        return Position(current_position.x_coordinate, current_position.y_coordinate + 1)
 
     def __str__(self) -> str:
         return "N"
