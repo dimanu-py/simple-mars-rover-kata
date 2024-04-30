@@ -23,7 +23,7 @@ class MarsRover:
             if command == "M":
                 self.move_forward()
 
-        return f"{self.x_coordinate}:{self.y_coordinate}:{self.orientation}"
+        return f"{self.x_coordinate}:{self.y_coordinate}:{self.compass}"
 
     def move_forward(self):
         if self.orientation == "N":
