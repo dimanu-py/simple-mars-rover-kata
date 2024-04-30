@@ -26,13 +26,13 @@ class MarsRover:
         return f"{self.x_coordinate}:{self.y_coordinate}:{self.compass}"
 
     def move_forward(self):
-        if self.orientation == "N":
+        if self.compass == "N":
             self.y_coordinate += 1
-        elif self.orientation == "E":
+        elif self.compass == "E":
             self.x_coordinate += 1
-        elif self.orientation == "S":
+        elif self.compass == "S":
             self.y_coordinate -= 1
-        elif self.orientation == "W":
+        elif self.compass == "W":
             self.x_coordinate -= 1
 
     def turn_right(self) -> None:
