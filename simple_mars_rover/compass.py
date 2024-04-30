@@ -1,11 +1,17 @@
-from simple_mars_rover.orientation import North
+from simple_mars_rover.orientation import North, South, West, East
 
 
 class Compass:
 
     def __init__(self, orientation: str) -> None:
         self.orientation = orientation
-        self._orientation = North()
+        orientations = {
+            "N": North,
+            "S": South,
+            "W": West,
+            "E": East
+        }
+        self._orientation = orientations[self.orientation]()
 
     def __str__(self) -> str:
         return f"{self.orientation}"
@@ -21,8 +27,7 @@ class Compass:
             "W": "N"
         }[self.orientation]
 
-        if self.orientation == "N":
-            self._orientation = self._orientation.turn_right()
+        self._orientation = self._orientation.turn_right()
 
         return Compass(orientation)
 
@@ -34,8 +39,7 @@ class Compass:
             "E": "N"
         }[self.orientation]
 
-        if self.orientation == "N":
-            self._orientation = self._orientation.turn_left()
+        self._orientation = self._orientation.turn_left()
 
         return Compass(orientation)
 
