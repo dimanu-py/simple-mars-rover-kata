@@ -16,14 +16,17 @@ class MarsRover:
 
     def execute(self, command_sequence: str) -> str:
         for command in command_sequence:
-            if command == "R":
-                self.turn_right()
-            if command == "L":
-                self.turn_left()
-            if command == "M":
-                self.move_forward()
+            self._process_command(command)
 
         return f"{self.position}:{self.compass}"
+
+    def _process_command(self, command: str) -> None:
+        if command == "R":
+            self.turn_right()
+        if command == "L":
+            self.turn_left()
+        if command == "M":
+            self.move_forward()
 
     def move_forward(self) -> None:
         self.position = self.compass.move(self.position)
