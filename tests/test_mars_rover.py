@@ -19,7 +19,8 @@ class TestMarsRover:
         ("MMMMMMMMM", "0:9:N"),
         ("MMRM", "1:2:E"),
         ("MMMMRRMM", "0:2:S"),
-        ("MRMMMLLMM", "1:1:W")
+        ("MRMMMLLMM", "1:1:W"),
+        ("MMRMMLM", "2:3:N"),
     ]
 
     def test_rover_is_deployed_at_initial_position(self) -> None:
