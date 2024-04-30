@@ -5,7 +5,6 @@ class MarsRover:
 
     def __init__(self) -> None:
         self.compass: Compass = Compass("N")
-        self.orientation = "N"
         self.x_coordinate = 0
         self.y_coordinate = 0
 
@@ -36,21 +35,7 @@ class MarsRover:
             self.x_coordinate -= 1
 
     def turn_right(self) -> None:
-        self.orientation = {
-            "N": "E",
-            "E": "S",
-            "S": "W",
-            "W": "N"
-        }[self.orientation]
-
         self.compass = self.compass.turn_right()
 
     def turn_left(self) -> None:
-        self.orientation = {
-            "N": "W",
-            "W": "S",
-            "S": "E",
-            "E": "N"
-        }[self.orientation]
-
         self.compass = self.compass.turn_left()
