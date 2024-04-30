@@ -22,6 +22,9 @@ class South(Orientation):
     def turn_left(self) -> Orientation:
         return East()
 
+    def __str__(self) -> str:
+        return "S"
+
 
 class East(Orientation):
     """East cardinal direction"""
@@ -31,6 +34,9 @@ class East(Orientation):
 
     def turn_left(self) -> Orientation:
         return North()
+
+    def __str__(self) -> str:
+        return "E"
 
 
 class West(Orientation):
@@ -42,6 +48,9 @@ class West(Orientation):
     def turn_left(self) -> Orientation:
         return South()
 
+    def __str__(self) -> str:
+        return "W"
+
 
 class North(Orientation):
     """North cardinal direction."""
@@ -51,3 +60,6 @@ class North(Orientation):
 
     def turn_left(self) -> Orientation:
         return West()
+
+    def __str__(self) -> str:
+        return "N"
