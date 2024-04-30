@@ -13,8 +13,18 @@ class Orientation(ABC):
         """Turn left cardinal direction"""
 
 
-class East(Orientation):
+class South(Orientation):
     pass
+
+
+class East(Orientation):
+    """East cardinal direction"""
+
+    def turn_right(self) -> Orientation:
+        return South()
+
+    def turn_left(self) -> Orientation:
+        return North()
 
 
 class West(Orientation):
