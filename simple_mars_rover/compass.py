@@ -35,4 +35,7 @@ class Compass:
         return coordinate
 
     def move(self, position: Position) -> Position:
-        return position
+        x_coordinate = self.move_x(position.x_coordinate)
+        y_coordinate = self.move_y(position.y_coordinate)
+
+        return Position(x_coordinate, y_coordinate)
