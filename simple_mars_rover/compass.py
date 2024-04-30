@@ -28,3 +28,19 @@ class Compass:
         }[self.orientation]
 
         return Compass(orientation)
+
+    def move_y(self, coordinate: int) -> int:
+        if self.orientation == "N":
+            coordinate += 1
+        elif self.orientation == "S":
+            coordinate -= 1
+
+        return coordinate
+
+    def move_x(self, coordinate: int) -> int:
+        if self.orientation == "E":
+            coordinate += 1
+        elif self.orientation == "W":
+            coordinate -= 1
+
+        return coordinate
