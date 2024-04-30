@@ -24,18 +24,24 @@ class MarsRover:
 
         return f"{self.x_coordinate}:{self.y_coordinate}:{self.compass}"
 
-    def move_forward(self):
-        if self.compass == "N":
-            self.y_coordinate += 1
-        elif self.compass == "E":
-            self.x_coordinate += 1
-        elif self.compass == "S":
-            self.y_coordinate -= 1
-        elif self.compass == "W":
-            self.x_coordinate -= 1
+    def move_forward(self) -> None:
+        self.move_y()
+        self.move_x()
 
     def turn_right(self) -> None:
-        self.compass = self.compass.turn_right()
+            self.compass = self.compass.turn_right()
 
     def turn_left(self) -> None:
-        self.compass = self.compass.turn_left()
+            self.compass = self.compass.turn_left()
+
+    def move_y(self) -> None:
+        if self.compass == "N":
+            self.y_coordinate += 1
+        elif self.compass == "S":
+            self.y_coordinate -= 1
+
+    def move_x(self):
+        if self.compass == "E":
+            self.x_coordinate += 1
+        elif self.compass == "W":
+            self.x_coordinate -= 1
