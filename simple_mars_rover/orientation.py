@@ -1,9 +1,16 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class Orientation(ABC):
     """Cardinal directions."""
-    pass
+
+    @abstractmethod
+    def turn_right(self) -> "Orientation":
+        """Turn right cardinal direction"""
+
+    @abstractmethod
+    def turn_left(self) -> "Orientation":
+        """Turn left cardinal direction"""
 
 
 class East(Orientation):
