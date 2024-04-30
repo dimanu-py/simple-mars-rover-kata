@@ -25,7 +25,7 @@ class MarsRover:
             if command == "M":
                 self.move_forward()
 
-        return f"{self.x_coordinate}:{self.y_coordinate}:{self.compass}"
+        return f"{self.position}:{self.compass}"
 
     def move_forward(self) -> None:
         self.y_coordinate = self.compass.move_y(self.y_coordinate)
