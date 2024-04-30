@@ -3,6 +3,9 @@ class Compass:
     def __init__(self, orientation: str) -> None:
         self.orientation = orientation
 
+    def __str__(self) -> str:
+        return f"{self.orientation}"
+
     def turn_right(self) -> "Compass":
         orientation = {
             "N": "E",
