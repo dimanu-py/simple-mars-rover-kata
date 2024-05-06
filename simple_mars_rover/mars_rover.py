@@ -1,7 +1,6 @@
 from enum import StrEnum
 
-from simple_mars_rover.compass import Compass
-from simple_mars_rover.orientation import North
+from simple_mars_rover.orientation import North, Orientation
 from simple_mars_rover.position import Position
 
 
@@ -16,7 +15,7 @@ class Commands(StrEnum):
 class MarsRover:
 
     def __init__(self) -> None:
-        self.compass: Compass = Compass(North())
+        self.orientation: Orientation = North()
         self.position: Position = Position(0, 0)
 
     @classmethod
@@ -28,7 +27,7 @@ class MarsRover:
         for command in command_sequence:
             self._process_command(command)
 
-        return f"{self.position}:{self.compass}"
+        return f"{self.position}:{self.orientation}"
 
     def _process_command(self, command: str) -> None:
         if command == Commands.TURN_RIGHT:
@@ -39,10 +38,10 @@ class MarsRover:
             self.move_forward()
 
     def move_forward(self) -> None:
-        self.position = self.compass.move(self.position)
+        self.position = self.orientation.move(self.position)
 
     def turn_right(self) -> None:
-        self.compass = self.compass.turn_right()
+        self.orientation = self.orientation.turn_right()
 
     def turn_left(self) -> None:
-        self.compass = self.compass.turn_left()
+        self.orientation = self.orientation.turn_left()
