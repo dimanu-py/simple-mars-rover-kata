@@ -23,6 +23,7 @@ class Orientation(ABC):
 
 class South(Orientation):
     """South cardinal direction"""
+    NAME = "S"
 
     def turn_right(self) -> Orientation:
         return West()
@@ -34,11 +35,13 @@ class South(Orientation):
         return Position(current_position.x_coordinate, current_position.y_coordinate - STEP_SIZE)
 
     def __str__(self) -> str:
-        return "S"
+        return self.NAME
 
 
 class East(Orientation):
     """East cardinal direction"""
+
+    NAME = "E"
 
     def turn_right(self) -> Orientation:
         return South()
@@ -50,11 +53,13 @@ class East(Orientation):
         return Position(current_position.x_coordinate + STEP_SIZE, current_position.y_coordinate)
 
     def __str__(self) -> str:
-        return "E"
+        return self.NAME
 
 
 class West(Orientation):
     """West cardinal direction"""
+
+    NAME = "W"
 
     def turn_right(self) -> Orientation:
         return North()
@@ -66,11 +71,13 @@ class West(Orientation):
         return Position(current_position.x_coordinate - STEP_SIZE, current_position.y_coordinate)
 
     def __str__(self) -> str:
-        return "W"
+        return self.NAME
 
 
 class North(Orientation):
     """North cardinal direction."""
+
+    NAME = "N"
 
     def turn_right(self) -> Orientation:
         return East()
@@ -82,4 +89,4 @@ class North(Orientation):
         return Position(current_position.x_coordinate, current_position.y_coordinate + STEP_SIZE)
 
     def __str__(self) -> str:
-        return "N"
+        return self.NAME
