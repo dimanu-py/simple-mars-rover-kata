@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 
 from simple_mars_rover.position import Position
 
+STEP_SIZE = 1
+
 
 class Orientation(ABC):
     """Cardinal directions."""
@@ -29,7 +31,7 @@ class South(Orientation):
         return East()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate, current_position.y_coordinate - 1)
+        return Position(current_position.x_coordinate, current_position.y_coordinate - STEP_SIZE)
 
     def __str__(self) -> str:
         return "S"
@@ -45,7 +47,7 @@ class East(Orientation):
         return North()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate + 1, current_position.y_coordinate)
+        return Position(current_position.x_coordinate + STEP_SIZE, current_position.y_coordinate)
 
     def __str__(self) -> str:
         return "E"
@@ -61,7 +63,7 @@ class West(Orientation):
         return South()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate - 1, current_position.y_coordinate)
+        return Position(current_position.x_coordinate - STEP_SIZE, current_position.y_coordinate)
 
     def __str__(self) -> str:
         return "W"
@@ -77,7 +79,7 @@ class North(Orientation):
         return West()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate, current_position.y_coordinate + 1)
+        return Position(current_position.x_coordinate, current_position.y_coordinate + STEP_SIZE)
 
     def __str__(self) -> str:
         return "N"
