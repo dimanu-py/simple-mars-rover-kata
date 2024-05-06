@@ -1,6 +1,16 @@
+from enum import StrEnum
+
 from simple_mars_rover.compass import Compass
 from simple_mars_rover.orientation import North
 from simple_mars_rover.position import Position
+
+
+class Commands(StrEnum):
+    """Possible commands that Rover can execute"""
+
+    MOVE = "M"
+    TURN_RIGHT = "R"
+    TURN_LEFT = "L"
 
 
 class MarsRover:
@@ -21,11 +31,11 @@ class MarsRover:
         return f"{self.position}:{self.compass}"
 
     def _process_command(self, command: str) -> None:
-        if command == "R":
+        if command == Commands.TURN_RIGHT:
             self.turn_right()
-        if command == "L":
+        if command == Commands.TURN_LEFT:
             self.turn_left()
-        if command == "M":
+        if command == Commands.MOVE:
             self.move_forward()
 
     def move_forward(self) -> None:
