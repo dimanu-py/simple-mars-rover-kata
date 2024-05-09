@@ -1,6 +1,7 @@
 import pytest
 
 from simple_mars_rover.mars_rover import MarsRover
+from simple_mars_rover.mars_rover_controller import MarsRoverController
 
 
 class TestMarsRover:
@@ -28,15 +29,17 @@ class TestMarsRover:
 
     def test_rover_is_deployed_at_initial_position(self) -> None:
         rover = MarsRover.deploy()
+        controller = MarsRoverController(rover)
 
-        position = rover.execute("")
+        position = controller.execute("")
 
         assert position == "0:0:N"
 
     @pytest.mark.parametrize("sequence, expected", commands_providers)
     def test_rover_can_process_commands(self, sequence: str, expected: str) -> None:
         rover = MarsRover.deploy()
+        controller = MarsRoverController(rover)
 
-        position = rover.execute(sequence)
+        position = controller.execute(sequence)
 
         assert position == expected
