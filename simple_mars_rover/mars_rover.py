@@ -23,15 +23,7 @@ class MarsRover:
         """Named constructor"""
         return MarsRover()
 
-    def execute(self, command_sequence: str) -> str:
-        for command in command_sequence:
-            self._process_command(command)
-
-        return f"{self.position}:{self.orientation}"
-
-    def _process_command(self, command: str) -> None:
-        if command == Commands.TURN_RIGHT:
-            self.turn_right()
+    def process_command(self, command: str) -> None:
         if command == Commands.TURN_LEFT:
             self.turn_left()
         if command == Commands.MOVE:
@@ -45,3 +37,6 @@ class MarsRover:
 
     def turn_left(self) -> None:
         self.orientation = self.orientation.turn_left()
+
+    def __str__(self) -> str:
+        return f"{self.position}:{self.orientation}"
