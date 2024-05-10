@@ -24,8 +24,6 @@ class MarsRover:
         return MarsRover()
 
     def process_command(self, command: str) -> None:
-        if command == Commands.TURN_LEFT:
-            self.turn_left()
         if command == Commands.MOVE:
             self.move_forward()
 
