@@ -38,3 +38,20 @@ class Move(Command):
 
     def execute(self) -> None:
         self.mars_rover.move_forward()
+
+
+class CommandFactory:
+    """Generates command objects"""
+
+    @classmethod
+    def generate_command(cls, command: str, mars_rover: MarsRover) -> Command:
+        command_map = {
+            "R": TurnRight,
+            "L": TurnLeft,
+            "M": Move
+        }
+
+        try:
+            return command_map[command](mars_rover)
+        except KeyError:
+            raise ValueError(f"Invalid command: {command}")
