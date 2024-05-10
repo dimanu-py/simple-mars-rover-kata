@@ -23,10 +23,6 @@ class MarsRover:
         """Named constructor"""
         return MarsRover()
 
-    def process_command(self, command: str) -> None:
-        if command == Commands.MOVE:
-            self.move_forward()
-
     def move_forward(self) -> None:
         self.position = self.orientation.move(self.position)
 
