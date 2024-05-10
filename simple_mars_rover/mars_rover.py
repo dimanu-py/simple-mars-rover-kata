@@ -1,15 +1,5 @@
-from enum import StrEnum
-
 from simple_mars_rover.orientation import North, Orientation
 from simple_mars_rover.position import Position
-
-
-class Commands(StrEnum):
-    """Possible commands that Rover can execute"""
-
-    MOVE = "M"
-    TURN_RIGHT = "R"
-    TURN_LEFT = "L"
 
 
 class MarsRover:
