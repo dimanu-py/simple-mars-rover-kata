@@ -18,3 +18,13 @@ class TurnRight(Command):
 
     def execute(self) -> None:
         self.mars_rover.turn_right()
+
+
+class TurnLeft(Command):
+    """Turn left command"""
+
+    def __init__(self, mars_rover: MarsRover) -> None:
+        self.mars_rover = mars_rover
+
+    def execute(self) -> None:
+        self.mars_rover.turn_left()
