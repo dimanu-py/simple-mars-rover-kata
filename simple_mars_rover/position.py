@@ -1,3 +1,6 @@
+STEP_SIZE = 1
+
+
 class Position:
     """Coordinates of the rover's position"""
 
@@ -13,6 +16,18 @@ class Position:
         For example, if the rover goes outside the grid at the top, it will appear at the bottom.
         """
         return coordinate % 10
+
+    def north(self) -> "Position":
+        return Position(self.x_coordinate, self.y_coordinate + STEP_SIZE)
+
+    def south(self) -> "Position":
+        return Position(self.x_coordinate, self.y_coordinate - STEP_SIZE)
+
+    def east(self) -> "Position":
+        return Position(self.x_coordinate + STEP_SIZE, self.y_coordinate)
+
+    def west(self) -> "Position":
+        return Position(self.x_coordinate - STEP_SIZE, self.y_coordinate)
 
     def __str__(self) -> str:
         return f"{self.x_coordinate}:{self.y_coordinate}"
