@@ -32,7 +32,7 @@ class South(Orientation):
         return East()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate, current_position.y_coordinate - STEP_SIZE)
+        return current_position.south()
 
     def __str__(self) -> str:
         return self.NAME
@@ -50,7 +50,7 @@ class East(Orientation):
         return North()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate + STEP_SIZE, current_position.y_coordinate)
+        return current_position.east()
 
     def __str__(self) -> str:
         return self.NAME
@@ -68,7 +68,7 @@ class West(Orientation):
         return South()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate - STEP_SIZE, current_position.y_coordinate)
+        return current_position.west()
 
     def __str__(self) -> str:
         return self.NAME
@@ -86,7 +86,7 @@ class North(Orientation):
         return West()
 
     def move(self, current_position: Position) -> Position:
-        return Position(current_position.x_coordinate, current_position.y_coordinate + STEP_SIZE)
+        return current_position.north()
 
     def __str__(self) -> str:
         return self.NAME
