@@ -1,4 +1,4 @@
-# :robot: Simple Mars Rover Kata :robot:
+# :robot: Mars Rover Kata :robot:
 
 [![Python](https://img.shields.io/badge/Python-3.11+-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)](https://python.org)
 
@@ -6,9 +6,10 @@
 
 These instructions where extracted from Codurance Kata Catalogue. You can find the original instructions in the link below.
 
-[![Web](https://img.shields.io/badge/Codurance-Website-14a1f0?style=for-the-badge&logo=web&logoColor=white&labelColor=101010)](https://www.codurance.com/katas/simple-mars-rover)
+[![Web](https://img.shields.io/badge/Codurance-Simple_Mars_Rover-14a1f0?style=for-the-badge&logo=web&logoColor=white&labelColor=101010)](https://www.codurance.com/katas/simple-mars-rover)
+[![Web](https://img.shields.io/badge/Codurance-Mars_Rover-14a1f0?style=for-the-badge&logo=web&logoColor=white&labelColor=101010)](https://www.codurance.com/katas/mars-rover)
 
-## Description
+## Description Simple Mars Rover
 
 A squad of robotic rovers are to be landed by NASA on a plateau on Mars.
 
@@ -43,6 +44,14 @@ a rover whose position is `2:3:W` is at square (2,3), facing west.
 The input string `MMRMMLM` for the rover starting at `0:0:N` will output `2:3:N`.
 
 Given an input `MMMMMMMMMM` for the rover starting at `0:0:N` will output `0:0:N` due to wrap-around.
+
+## Description Mars Rover
+
+To complete the full version of the kata you need to implement the following features:
+- The plateau is represented as a grid with dimensions X and Y
+- The rover can move in a grid of any size
+- The grid may have obstacles. In these cases, the rover should stop and report the position where it stopped by prefixing O: to the
+position. For example, if the rover finds an obstacle at 0:3:N, it should report O:0:2:N
 
 ## Objective
 
