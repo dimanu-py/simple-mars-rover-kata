@@ -1,3 +1,4 @@
+from simple_mars_rover.grid import Grid
 from simple_mars_rover.orientation import North, Orientation
 from simple_mars_rover.position import Position
 
@@ -5,6 +6,7 @@ from simple_mars_rover.position import Position
 class MarsRover:
 
     def __init__(self) -> None:
+        self.grid: Grid = Grid(10, 10)
         self.orientation: Orientation = North()
         self.position: Position = Position(0, 0)
 
