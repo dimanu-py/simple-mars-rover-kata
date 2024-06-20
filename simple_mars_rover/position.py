@@ -1,3 +1,5 @@
+from simple_mars_rover.grid import Grid
+
 STEP_SIZE = 1
 
 
@@ -31,3 +33,6 @@ class Position:
 
     def __str__(self) -> str:
         return f"{self.x_coordinate}:{self.y_coordinate}"
+
+    def is_inside(self, grid: Grid) -> bool:
+        return grid.is_inside(self.x_coordinate, self.y_coordinate)

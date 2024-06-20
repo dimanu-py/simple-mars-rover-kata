@@ -16,7 +16,10 @@ class MarsRover:
         return MarsRover()
 
     def move_forward(self) -> None:
-        self.position = self.orientation.move(self.position)
+        new_position = self.orientation.move(self.position)
+
+        if new_position.is_inside(self.grid):
+            self.position = new_position
 
     def turn_right(self) -> None:
         self.orientation = self.orientation.turn_right()
