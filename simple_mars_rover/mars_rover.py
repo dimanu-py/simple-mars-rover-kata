@@ -15,6 +15,11 @@ class MarsRover:
         """Named constructor with default grid."""
         return MarsRover(Grid(10, 10))
 
+    @classmethod
+    def deploy_at(cls, grid: Grid) -> "MarsRover":
+        """Named constructor with generic grid."""
+        return MarsRover(grid)
+
     def move_forward(self) -> None:
         new_position = self.orientation.move(self.position)
 
