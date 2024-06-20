@@ -28,7 +28,7 @@ class TestMarsRover:
     ]
 
     def test_rover_is_deployed_at_initial_position(self) -> None:
-        rover = MarsRover.deploy()
+        rover = MarsRover.deploy_at_default_grid()
         controller = MarsRoverController(rover)
 
         position = controller.execute("")
@@ -37,7 +37,7 @@ class TestMarsRover:
 
     @pytest.mark.parametrize("sequence, expected", commands_providers)
     def test_rover_can_process_commands(self, sequence: str, expected: str) -> None:
-        rover = MarsRover.deploy()
+        rover = MarsRover.deploy_at_default_grid()
         controller = MarsRoverController(rover)
 
         position = controller.execute(sequence)

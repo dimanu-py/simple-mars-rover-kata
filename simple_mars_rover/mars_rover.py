@@ -11,8 +11,8 @@ class MarsRover:
         self.position: Position = Position(0, 0)
 
     @classmethod
-    def deploy(cls) -> "MarsRover":
-        """Named constructor"""
+    def deploy_at_default_grid(cls) -> "MarsRover":
+        """Named constructor with default grid."""
         return MarsRover(Grid(10, 10))
 
     def move_forward(self) -> None:
