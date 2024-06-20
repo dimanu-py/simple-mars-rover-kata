@@ -5,15 +5,15 @@ from simple_mars_rover.position import Position
 
 class MarsRover:
 
-    def __init__(self) -> None:
-        self.grid: Grid = Grid(10, 10)
+    def __init__(self, grid: Grid) -> None:
+        self.grid = grid
         self.orientation: Orientation = North()
         self.position: Position = Position(0, 0)
 
     @classmethod
     def deploy(cls) -> "MarsRover":
         """Named constructor"""
-        return MarsRover()
+        return MarsRover(Grid(10, 10))
 
     def move_forward(self) -> None:
         new_position = self.orientation.move(self.position)
