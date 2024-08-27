@@ -36,3 +36,6 @@ class Position:
 
     def is_inside(self, grid: Grid) -> bool:
         return grid.is_inside(self.x_coordinate, self.y_coordinate)
+
+    def is_free(self, grid: Grid) -> bool:
+        return grid.is_free(self.x_coordinate, self.y_coordinate)

@@ -1,5 +1,6 @@
 import pytest
 
+from simple_mars_rover.grid import Grid
 from simple_mars_rover.mars_rover import MarsRover
 from simple_mars_rover.mars_rover_controller import MarsRoverController
 
@@ -43,3 +44,15 @@ class TestMarsRover:
         position = controller.execute(sequence)
 
         assert position == expected
+
+    @pytest.mark.skip
+    def test_rover_can_process_commands_in_grid_with_obstacles(self) -> None:
+        grid = Grid(10, 10)
+        grid.add_obstacle(0, 3)
+
+        rover = MarsRover.deploy_at(grid)
+        controller = MarsRoverController(rover)
+
+        position = controller.execute("MMMMM")
+
+        assert position == "O:0:2:N"
